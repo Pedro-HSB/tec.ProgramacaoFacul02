@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo IMC</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<style>
+    * {
+        font-size: x-large;
+        color: aliceblue;
+        background-color: rgb(75, 75, 75);
+        align-content: center;
+        text-align: center;
+
+    }
+
+    body {
+        display: grid;
+        place-items: center;
+    }
+</style>
+
+<body>
+    <div id="resul">
+    </div>
+</body>
+<script>
+    //Acessamos a funcao passando o parametros que queremos o valor do seu retorno .Ex: o parametro [stars]
+var params = window.location.search.substr(1).split('&');
+
+var peso = params[0].split('=');
+var altura = params[1].split('=');
+
+peso = decodeURIComponent(peso[1])
+altura = decodeURIComponent(altura[1])
+
+const imc = peso / (altura * altura);
+
+document.getElementById('resul').innerHTML = `O Seu IMC é: ${imc.toFixed(2)}`;
+</script>
+
+</html>
